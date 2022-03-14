@@ -1,20 +1,20 @@
-# Weather App
+# Weather App :cloud_with_snow:
 
 > A simple weather app developed using React and the Metaweather API.
 
 ![screenshot](./weather_app.gif)
 
-## Built With
+## Built With 🌩️
 
 - React
 - Bootstrap
 
-## Live Demo (Coming soon...)
+## Live Demo ☁️
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://melaniesigrid.github.io/weather-app/)
 
 
-## Getting Started
+## Getting Started ☀️
 
 To get a local copy up and running follow these simple example steps.
 
