@@ -1,6 +1,10 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import UpcomingDaysForecastItem from '../UpcomingDaysForecastItem';
+
 import styles from './UpcomingDaysForecast.module.css';
 
 const UpcomingDaysForecast = ({ days }) => (

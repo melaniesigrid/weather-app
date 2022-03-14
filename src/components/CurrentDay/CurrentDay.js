@@ -1,13 +1,14 @@
-
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import locationIcon from './assets/location-pin.png';
 import styles from './CurrentDay.module.css';
 
-const CurrentDay = ({ weekday, date, location, temperature, weatherIcon, weatherDescription }) => (
-  <div className="d-flex parentContainer" >
-    <div className={styles.img}></div>
-    <div className={styles.gradient}></div>
+const CurrentDay = ({
+  weekday, date, location, temperature, weatherIcon, weatherDescription,
+}) => (
+  <div className="d-flex parentContainer">
+    <div className={styles.img} />
+    <div className={styles.gradient} />
     <div className={`${styles.cardInner} d-flex flex-column justify-content-between pt-3 pb-2 pl-2`}>
       <div>
         <h2 className="font-weight-bold mb-1">{weekday}</h2>
@@ -20,7 +21,8 @@ const CurrentDay = ({ weekday, date, location, temperature, weatherIcon, weather
       <div>
         <img width="45" src={weatherIcon} alt="" />
         <h2 className="font-weight-bold mb-1">
-          <span>{temperature}</span>°C
+          <span>{temperature}</span>
+          °C
         </h2>
         <h5 className="font-weight-lighter">{weatherDescription}</h5>
       </div>

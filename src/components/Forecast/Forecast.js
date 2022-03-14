@@ -1,3 +1,6 @@
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -25,9 +28,9 @@ const Forecast = ({ forecast }) => (
 
 Forecast.propTypes = {
   forecast: PropTypes.shape({
-    currentDay: PropTypes.object,
-    currentDayDetails: PropTypes.array,
-    upcomingDays: PropTypes.array,
+    currentDay: PropTypes.object.isRequired,
+    currentDayDetails: PropTypes.array.isRequired,
+    upcomingDays: PropTypes.array.isRequired,
   }),
 };
 

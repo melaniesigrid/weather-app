@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import CurrentDayDescriptionItem from '../CurrentDayDescriptionItem';
@@ -13,7 +15,7 @@ const CurrentDayDescription = ({ forecast }) => (
 );
 
 CurrentDayDescription.propTypes = {
-  forecast: PropTypes.array,
-}
+  forecast: PropTypes.array.isRequired,
+};
 
 export default CurrentDayDescription;

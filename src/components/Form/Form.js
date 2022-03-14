@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.module.css';
 
-const Form = ({submitSearch}) => {
+const Form = ({ submitSearch }) => {
   const [location, setLocation] = useState('');
 
   const onSubmit = (e) => {
@@ -24,7 +24,7 @@ const Form = ({submitSearch}) => {
       />
 
       <button type="submit" className={styles.button} onClick={onSubmit}>
-          SEARCH
+        SEARCH
       </button>
     </form>
   );

@@ -1,4 +1,5 @@
 import moment from 'moment';
+
 const getWeekday = (date) => moment(date).format('dddd').substring(0, 3);
 
 const getUpcomingDaysForecast = (data) => (
