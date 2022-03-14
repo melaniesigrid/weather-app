@@ -1,5 +1,9 @@
 .parentContainer {
-  position: relative;
+  background-image: var(--gradient) !important;
+  background-size: cover;
+  border-radius: var(--main-border-radius) !important;
+  opacity: 0.7;
+  background-image: url('./assets/mountain.jpg');
 }
 
 .card {

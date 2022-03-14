@@ -9,7 +9,6 @@
   transform: scale(1.1);
   background: #fff;
   color: #222831;
-
   -webkit-box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
 }

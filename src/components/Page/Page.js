@@ -8,7 +8,9 @@ import useForecast from '../../hooks/useForecast';
 import styles from './Page.module.css';
 
 const Page = () => {
-  const { isError, isLoading, forecast, submitRequest } = useForecast();
+  const {
+    isError, isLoading, forecast, submitRequest,
+  } = useForecast();
   const onSubmit = (value) => {
     submitRequest(value);
   };
