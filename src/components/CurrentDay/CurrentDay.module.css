@@ -1,3 +1,7 @@
+.parentContainer {
+  position: relative;
+}
+
 .card {
   border-radius: var(--main-border-radius);
 }
@@ -8,11 +12,11 @@
 }
 
 .gradient {
-  position: absolute;
+  /* position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0;
+  left: 0; */
   background-image: var(--gradient);
   background-size: cover;
   border-radius: var(--main-border-radius);
@@ -20,11 +24,11 @@
 }
 
 .img {
-  position: absolute;
+  /* position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0;
+  left: 0; */
   background-image: url('./assets/mountain.jpg');
   background-size: cover;
   border-radius: var(--main-border-radius);
