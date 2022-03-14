@@ -1,4 +1,4 @@
-const currentDayForecast = data => [
+const currentDayForecast = (data) => [
     {
         name: 'predictability',
         value: data.predictability,
