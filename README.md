@@ -28,7 +28,7 @@ Clone this repository by typing `git clone https://github.com/melaniesigrid/weat
 Run `npm install` on your command line.
 
 ### Usage
-Navigate to the project directory `cd weather-app, and run `npm start`.
+Navigate to the project directory `cd weather-app`, and run `npm start`. Or, visit the live demo at: https://melaniesigrid.github.io/weather-app/
 
 
 ## Author
