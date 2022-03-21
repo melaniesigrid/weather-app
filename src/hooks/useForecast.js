@@ -7,6 +7,7 @@ import getUpcomingDaysForecast from '../helpers/getUpcomingDaysForecast';
 
 const BASE_URL = 'https://www.metaweather.com/api/location';
 const CROSS_DOMAIN = 'https://the-ultimate-api-challenge.herokuapp.com';
+// const CROSS_DOMAIN_TEST = 'https://cors-anywhere.herokuapp.com'; This is the origin of the CORS solution.
 const REQUEST_URL = `${CROSS_DOMAIN}/${BASE_URL}`;
 
 const useForecast = () => {
