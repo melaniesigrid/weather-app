@@ -1,61 +1,107 @@
 import { useState } from 'react';
 import axios from 'axios';
-
 import getCurrentDayForecast from '../helpers/getCurrentDayForecast';
 import getCurrentDayDetailedForecast from '../helpers/getCurrentDayDetailedForecast';
 import getUpcomingDaysForecast from '../helpers/getUpcomingDaysForecast';
 
-const BASE_URL = 'https://www.metaweather.com/api/location';
-const CROSS_DOMAIN = 'https://the-ultimate-api-challenge.herokuapp.com';
-// const CROSS_DOMAIN_TEST = 'https://cors-anywhere.herokuapp.com'; This is the origin of the CORS solution.
-const REQUEST_URL = `${CROSS_DOMAIN}/${BASE_URL}`;
+const BASE_URL = 'http://dataservice.accuweather.com/locations/v1';
+const CURRENT_CONDITIONS_URL = 'http://dataservice.accuweather.com/currentconditions/v1';
+const FORECAST_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day';
+
+const API_KEY = 'UYCWyIoAI1LGtDLUuBGNk5ybKoDPtUVi';
 
 const useForecast = () => {
   const [isError, setError] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [forecast, setForecast] = useState(null);
 
-  const getWoeid = async (location) => {
-    const { data } = await axios(`${REQUEST_URL}/search`, { params: { query: location } });
+  // Fetch location key
+  const getLocationKey = async (location) => {
+    try {
+      const { data } = await axios(`${BASE_URL}/cities/autocomplete`, {
+        params: { apikey: API_KEY, q: location },
+      });
 
-    if (!data || data.length === 0) {
-      setError('Location not found.');
-      setLoading(false);
-      return {};
+      if (!data || data.length === 0) {
+        setError('Location not found.');
+        return null;
+      }
+
+      return data[0]?.Key;
+    } catch (error) {
+      setError('Something went wrong. Please try again.');
+      return null;
     }
-
-    return data[0];
   };
 
-  const getForecastData = async (woeid) => {
-    const { data } = await axios(`${REQUEST_URL}/${woeid}`);
-    if (!data || data.length === 0) {
-      setError('Something went wrong, please try again');
-      setLoading(false);
-      return {};
+  const getCurrentWeather = async (locationKey) => {
+    try {
+      const { data } = await axios(`${CURRENT_CONDITIONS_URL}/${locationKey}`, {
+        params: { apikey: API_KEY },
+      });
+
+      if (!data || data.length === 0) {
+        setError('Error fetching weather data.');
+        return null;
+      }
+      return data[0];
+    } catch (error) {
+      setError('Something went wrong. Please try again.');
+      return null;
     }
-    return data;
   };
 
-  const gatherForecastData = (data) => {
-    const currentDay = getCurrentDayForecast(data.consolidated_weather[0], data.title);
-    const currentDayDetails = getCurrentDayDetailedForecast(data.consolidated_weather[0]);
-    const upcomingDays = getUpcomingDaysForecast(data.consolidated_weather);
+  const getFiveDayForecast = async (locationKey) => {
+    try {
+      const { data } = await axios(`${FORECAST_URL}/${locationKey}`, {
+        params: { apikey: API_KEY, metric: true },
+      });
+
+      if (!data || !data.DailyForecasts || data.DailyForecasts.length === 0) {
+        setError('Error fetching 5-day forecast.');
+        return null;
+      }
+
+      return data.DailyForecasts;
+    } catch (error) {
+      setError('Something went wrong. Please try again.');
+      return null;
+    }
+  };
+
+  const gatherForecastData = (currentWeather, dailyForecasts, location) => {
+    if (!currentWeather || !dailyForecasts || dailyForecasts.length === 0) {
+      setError('Data could not be loaded.');
+      return;
+    }
+
+    const currentDay = getCurrentDayForecast(currentWeather, location);
+    const currentDayDetails = getCurrentDayDetailedForecast(currentWeather, dailyForecasts[0]);
+    const upcomingDays = getUpcomingDaysForecast(dailyForecasts);
+
     setForecast({ currentDay, currentDayDetails, upcomingDays });
-    setLoading(false);
   };
 
   const submitRequest = async (location) => {
     setLoading(true);
     setError(false);
 
-    const response = await getWoeid(location);
-    if (!response?.woeid) return;
+    try {
+      const locationKey = await getLocationKey(location);
+      if (!locationKey) throw new Error('Failed to get location key.');
 
-    const data = await getForecastData(response.woeid);
-    if (!data) return;
+      const currentWeather = await getCurrentWeather(locationKey);
+      if (!currentWeather) throw new Error('Failed to get current weather.');
 
-    gatherForecastData(data);
+      const dailyForecasts = await getFiveDayForecast(locationKey);
+      if (!dailyForecasts) throw new Error('Failed to get 5-day forecast.');
+
+      gatherForecastData(currentWeather, dailyForecasts, location);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return {
