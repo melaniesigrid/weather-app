@@ -1,6 +1,7 @@
 # Weather App :cloud_with_snow:
 
 > A simple weather app developed using React and the Metaweather API.
+> UPDATE: As of 2025, the Metaweather API is not working. Updated to AccuWeather
 
 ![screenshot](./weather_app.gif)
 
