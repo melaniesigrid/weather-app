@@ -1,12 +1,15 @@
 import moment from 'moment';
+import getFontAwesomeIcon from './getFontAwesomeIcon';
 
-const getWeekday = date => moment(date).format('dddd').substring(0, 3);
-
-const getUpcomingDaysForecast = data =>
-    data.slice(1).map(day => ({
-        imgUrl: day.weather_state_abbr,
-        temperature: Math.round(day.max_temp),
-        weekday: getWeekday(day.applicable_date),
-    }));
+const getUpcomingDaysForecast = (dailyForecasts) => dailyForecasts.map(
+  (forecast) => (
+    {
+      weekday: moment(forecast.Date).format('ddd'),
+      temperature: `${Math.round(forecast.Temperature.Maximum.Value)}°C`,
+      weatherIcon: getFontAwesomeIcon(forecast.Day.IconPhrase),
+      weatherDescription: forecast.Day.IconPhrase,
+    }
+  ),
+);
 
 export default getUpcomingDaysForecast;

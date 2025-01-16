@@ -1,54 +1,44 @@
-# Weather App
+# Weather App :cloud_with_snow:
 
-> Description the project.
+> A simple weather app developed using React and the Metaweather API.
+> UPDATE: As of 2025, the Metaweather API is not working. Updated to AccuWeather
+
+![screenshot](./weather_app.gif)
+
+## Built With 🌩️
+
+- React
+- Bootstrap
+
+## Live Demo ☁️
+
+[Live Demo Link](https://melaniesigrid.github.io/weather-app/)
 
 
-## Built With
-
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
-
-
-## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
+## Getting Started ☀️
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+Install Node and npm using the `npm install` command on your command line.
 
 ### Setup
+Clone this repository by typing `git clone https://github.com/melaniesigrid/weather-app.git` on your terminal.
 
 ### Install
+Run `npm install` on your command line.
 
 ### Usage
-
-### Run tests
-
-### Deployment
+Navigate to the project directory `cd weather-app`, and run `npm start`. Or, visit the live demo at: https://melaniesigrid.github.io/weather-app/
 
 
+## Author
 
-## Authors
+👤 **Melanie Arellano**
 
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@melaniesigrid](https://github.com/melaniesigrid)
+- Twitter: [@SiriMoon11](https://twitter.com/SiriMoon11)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/melaniesigrid/)
 
 ## 🤝 Contributing
 
@@ -62,9 +52,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Hat tip to Metaweather for their awesome API.
 
 ## 📝 License
 
