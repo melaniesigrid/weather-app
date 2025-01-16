@@ -4,9 +4,9 @@ import getCurrentDayForecast from '../helpers/getCurrentDayForecast';
 import getCurrentDayDetailedForecast from '../helpers/getCurrentDayDetailedForecast';
 import getUpcomingDaysForecast from '../helpers/getUpcomingDaysForecast';
 
-const BASE_URL = 'http://dataservice.accuweather.com/locations/v1';
-const CURRENT_CONDITIONS_URL = 'http://dataservice.accuweather.com/currentconditions/v1';
-const FORECAST_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day';
+const BASE_URL = 'https://dataservice.accuweather.com/locations/v1';
+const CURRENT_CONDITIONS_URL = 'https://dataservice.accuweather.com/currentconditions/v1';
+const FORECAST_URL = 'https://dataservice.accuweather.com/forecasts/v1/daily/5day';
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
